@@ -154,7 +154,7 @@ erDiagram
 
 ## 5. Suggested demo flow for your presentation
 
-1. **Customer** (`maria@…`): open *Products* → note the **-10 % beverage offer** and the live stock badge → add items → check out.
+1. **Customer** (`kenji@…`): open *Products* → note the **-10 % beverage offer** and the live stock badge → add items → check out.
 2. **Cashier** (`cashier@…`): sell the same product at the POS. Go back to the storefront: the stock number changes by itself within 10 seconds (**real-time integration**).
 3. **Logistics** (`logistics@…`): set Maria's shipment to *in transit* → *delivered*. Maria's order page follows (**data consistency across systems**).
 4. **Manager** (`manager@…`): restock a low-stock item; check the **Dashboard** (unified POS + online sales via the SQL view) and **Data Quality** (score + incomplete customer *Pedro Penduko*).
