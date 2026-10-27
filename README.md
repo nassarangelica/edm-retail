@@ -1,7 +1,7 @@
 # 🛍️ EDM Retail — Retail & E-Commerce Website with Enterprise Data Management
 
 A retail web application built for the **Enterprise Data Management (EDM)** subject.
-It applies the concepts from the class presentation *"EDM Integration — Unifying Data for Governance, Quality, and Insights"*,
+*"EDM Integration — Unifying Data for Governance, Quality, and Insights"*,
 specifically the **Retail & E-Commerce** case (POS + Inventory + CRM + Online Storefront + Logistics).
 
 | Layer | Technology |
