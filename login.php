@@ -32,16 +32,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 require __DIR__ . '/includes/header.php';
 ?>
-<div class="container py-5" style="max-width:440px">
-  <div class="card card-body shadow-sm">
-    <h3 class="mb-3">Login</h3>
-    <?php if ($error): ?><div class="alert alert-danger"><?= e($error) ?></div><?php endif; ?>
-    <form method="post"><?= csrf_field() ?>
-      <div class="mb-3"><label class="form-label">Email</label><input type="email" name="email" class="form-control" required autofocus></div>
-      <div class="mb-3"><label class="form-label">Password</label><input type="password" name="password" class="form-control" required></div>
-      <button class="btn btn-primary w-100">Login</button>
-    </form>
-    <div class="small mt-3">No account? <a href="<?= url('register.php') ?>">Register as customer</a></div>
+<div class="login-page">
+  <div class="login-card">
+    <section class="login-brand">
+      <div class="login-brand-content">
+        <div class="login-brand-icon"><i class="bi bi-bag-heart-fill"></i></div>
+        <h1>EDM Retail</h1>
+        <p>A simple, comfortable retail experience for browsing products, managing orders, and keeping your shopping activity in one place.</p>
+        <div class="login-feature"><i class="bi bi-check-circle-fill"></i><span>Secure account access</span></div>
+        <div class="login-feature"><i class="bi bi-check-circle-fill"></i><span>Real-time product availability</span></div>
+        <div class="login-feature"><i class="bi bi-check-circle-fill"></i><span>Easy order and profile management</span></div>
+      </div>
+    </section>
+
+    <section class="login-form">
+      <div class="login-form-inner">
+        <h2>Welcome back</h2>
+        <p class="subtitle">Sign in to continue to your EDM Retail account.</p>
+
+        <?php if ($error): ?>
+          <div class="alert alert-danger login-alert"><i class="bi bi-exclamation-circle me-2"></i><?= e($error) ?></div>
+        <?php endif; ?>
+
+        <form method="post">
+          <?= csrf_field() ?>
+          <div class="mb-3">
+            <label class="form-label">Email address</label>
+            <input type="email" name="email" class="form-control" placeholder="you@example.com" autocomplete="email" required autofocus>
+          </div>
+          <div class="mb-4">
+            <label class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Enter your password" autocomplete="current-password" required>
+          </div>
+          <button type="submit" class="btn login-submit"><i class="bi bi-box-arrow-in-right me-2"></i>Sign in</button>
+        </form>
+
+        <div class="login-register">Don't have an account? <a href="<?= url('register.php') ?>">Create an account</a></div>
+      </div>
+    </section>
   </div>
 </div>
 <?php require __DIR__ . '/includes/footer.php'; ?>

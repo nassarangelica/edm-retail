@@ -35,9 +35,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 require __DIR__ . '/includes/header.php';
 ?>
-<div class="container py-5" style="max-width:520px">
-  <div class="card card-body shadow-sm">
-    <h3 class="mb-3">Create customer account</h3>
+<div class="register-page">
+  <div class="card register-card">
+    <div class="card-body p-4 p-md-5">
+      <div class="mb-4">
+        <div class="login-brand-icon" style="background:var(--brand-soft); color:var(--brand);">
+          <i class="bi bi-person-plus-fill"></i>
+        </div>
+        <h2 class="fw-bold mb-2">Create your account</h2>
+        <p class="text-muted mb-0">Join EDM Retail and start shopping with us.</p>
+      </div>
     <?php foreach ($errors as $er): ?><div class="alert alert-danger py-2"><?= e($er) ?></div><?php endforeach; ?>
     <form method="post"><?= csrf_field() ?>
       <div class="mb-3"><label class="form-label">Full name</label><input name="name" class="form-control" value="<?= e($_POST['name'] ?? '') ?>" required></div>
@@ -52,6 +59,7 @@ require __DIR__ . '/includes/header.php';
         <label class="form-check-label small" for="consent">I agree that my data is stored to process orders and personalize offers. I can export or delete it anytime (GDPR).</label></div>
       <button class="btn btn-primary w-100">Register</button>
     </form>
+    </div>
   </div>
 </div>
 <?php require __DIR__ . '/includes/footer.php'; ?>

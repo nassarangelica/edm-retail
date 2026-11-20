@@ -1,6 +1,14 @@
 <?php
 require __DIR__ . '/includes/bootstrap.php';
-if (user() && user()['role'] !== 'customer') redirect(home_for_role(user()['role']));
+if (!user()) {
+    redirect('login.php');
+}
+
+// Staff users belong in their workspace. Customers can use the storefront.
+if (user()['role'] !== 'customer') {
+    redirect(home_for_role(user()['role']));
+}
+
 $pageTitle = 'Home';
 
 $offers = (user() && user()['customer_id']) ? eligible_offers((int)user()['customer_id']) : [];

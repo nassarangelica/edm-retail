@@ -5,4 +5,4 @@ $_SESSION = [];
 session_destroy();
 session_start();
 flash('info', 'You have been logged out.');
-redirect('index.php');
+redirect('login.php');

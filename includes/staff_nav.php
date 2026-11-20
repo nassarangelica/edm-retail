@@ -12,13 +12,15 @@ $items = [
   ['admin/etl.php',       'ETL / CDC',    'diagram-3',     ['admin']],
   ['admin/audit.php',     'Audit Logs',   'journal-text',  ['admin']],
 ];
-$current = basename($_SERVER['SCRIPT_NAME']);
+// Use the full project-relative path so admin/index.php and pos/index.php
+// are not treated as the same page just because both filenames are index.php.
+$current = ltrim(str_replace(rtrim(BASE_URL, '/') . '/', '', $_SERVER['SCRIPT_NAME']), '/');
 ?>
 <div class="staff-nav">
   <div class="container">
     <ul class="nav nav-pills py-2 flex-nowrap overflow-auto">
       <?php foreach ($items as [$path, $label, $icon, $roles]): if (!in_array(user()['role'], $roles, true)) continue; ?>
-        <li class="nav-item"><a class="nav-link py-1 <?= basename($path) === $current ? 'active' : '' ?>" href="<?= url($path) ?>">
+        <li class="nav-item"><a class="nav-link py-1 <?= $path === $current ? 'active' : '' ?>" href="<?= url($path) ?>">
           <i class="bi bi-<?= $icon ?>"></i> <?= $label ?></a></li>
       <?php endforeach; ?>
     </ul>
